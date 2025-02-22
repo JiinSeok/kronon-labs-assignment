@@ -1,27 +1,53 @@
 {
   "name": "kronon-labs-assignment",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint --fix && stylelint '**/*.css' --fix",
+    "format": "prettier --write .",
+    "tsc": "tsc -p tsconfig.json --noEmit",
+    "correct": "npm run format && npm run lint && npm run tsc",
+    "update": "git fetch origin && git rebase origin/main",
+    "pre-push": "npm run update && npm run correct && npm run build"
   },
+  "eslintConfig": {
+    "extends": "./lint/.eslintrc.json"
+  },
+  "stylelint": {
+    "extends": "./lint/.stylelintrc.json"
+  },
+  "prettier": "./lint/.prettierrc.json",
   "dependencies": {
+    "next": "15.1.7",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.1.7"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
+    "@typescript-eslint/eslint-plugin": "^8.24.1",
+    "@typescript-eslint/parser": "^8.24.1",
     "eslint": "^9",
     "eslint-config-next": "15.1.7",
-    "@eslint/eslintrc": "^3"
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-promise": "^7.2.1",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "postcss": "^8",
+    "prettier": "^3.5.2",
+    "stylelint": "^16.14.1",
+    "stylelint-config-recommended": "^15.0.0",
+    "stylelint-config-standard": "^37.0.0",
+    "stylelint-config-tailwindcss": "^1.0.0",
+    "stylelint-prettier": "^5.0.3",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
   }
 }

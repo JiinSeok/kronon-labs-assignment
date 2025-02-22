@@ -1,0 +1,47 @@
+# Node.js dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Next.js build outputs
+.next/
+out/
+build/
+
+# TypeScript
+*.tsbuildinfo
+
+# Environment variables
+.env
+.env.local
+.env*.local
+.vercel
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Debugging files
+*.orig
+*.BACKUP.*
+*.BASE.*
+*.LOCAL.*
+*.REMOTE.*
+
+# Coverage and test output
+coverage/
+.nyc_output
+
+# OS-specific files
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Trashes
+.Spotlight-V100
+.TemporaryItems
+.fseventsd
+
+.idea

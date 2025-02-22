@@ -1,0 +1,33 @@
+{
+  "ignoreFiles": [
+    "build/**",
+    "dist/**",
+    "node_modules/**",
+    "**.*.min.{css,js}",
+    "package-lock.json",
+    "reset.css"
+  ],
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-recommended",
+    "stylelint-config-tailwindcss"
+  ],
+  "plugins": ["stylelint-prettier"],
+  "rules": {
+    "prettier/prettier": true,
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "tailwind",
+          "apply",
+          "layer",
+          "variants",
+          "responsive"
+        ]
+      }
+    ],
+    "no-duplicate-selectors": true,
+    "block-no-empty": true
+  }
+}
