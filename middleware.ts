@@ -4,29 +4,35 @@ const locales = ['en', 'ko']
 const defaultLocale = 'en'
 
 export function middleware(req: NextRequest) {
-  const { pathname } = req.nextUrl
+  const url = req.nextUrl
+  const { pathname, searchParams } = url
 
-  // URL에 언어 있음
+  // URL에 locale 없으면 리다이렉트
   const pathnameHasLocale = locales.some((locale) =>
     pathname.startsWith(`/${locale}`),
   )
-  if (pathnameHasLocale) return NextResponse.next()
 
-  // URL에 언어 없음
-  // 브라우저 언어
-  const acceptLanguage = req.headers.get('accept-language')
-  const detectedLocale = acceptLanguage
-    ? locales.find((locale) => acceptLanguage.includes(locale))
-    : defaultLocale
+  if (!pathnameHasLocale) {
+    const acceptLanguage = req.headers.get('accept-language')
+    const detectedLocale = acceptLanguage
+      ? locales.find((locale) => acceptLanguage.includes(locale))
+      : defaultLocale
 
-  // 기본 언어
-  const locale = detectedLocale || defaultLocale
+    return NextResponse.redirect(
+      new URL(`/${detectedLocale}${pathname}`, req.url),
+    )
+  }
 
-  // 리디렉션
-  return NextResponse.redirect(new URL(`/${locale}${pathname}`, req.url))
+  // "/trade/BTC_USDT" 경로 query param 기본값 "type=spot" 추가
+  if (pathname.includes('/trade/BTC_USDT') && !searchParams.has('type')) {
+    url.searchParams.set('type', 'spot')
+    return NextResponse.redirect(url)
+  }
+
+  return NextResponse.next()
 }
 
-// 리디렉션 적용할 경로
+// 적용할 경로
 export const config = {
   matcher: ['/((?!api|_next|.*\\..*).*)'], // API, _next, 정적 파일 제외
 }
