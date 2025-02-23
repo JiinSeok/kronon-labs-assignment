@@ -1,10 +1,7 @@
-import ClientSideSetUp from '@/app/ClientSideSetUp'
-import NavigationBar from '@/components/NavigationBar'
-import { metaData } from '@/lib/data'
 import '@/styles/globals.css'
+import { metaData } from '@/lib/metadata'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
-import { ReactNode } from 'react'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -30,7 +27,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: ReactNode
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en">
@@ -40,14 +37,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#ffffff" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-gray-50 text-black dark:bg-gray-900 dark:text-white transition-colors duration-300`}
-      >
-        <ClientSideSetUp>
-          <NavigationBar />
-          {children}
-        </ClientSideSetUp>
-      </body>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
     </html>
   )
 }
