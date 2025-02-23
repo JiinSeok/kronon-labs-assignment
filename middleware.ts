@@ -14,14 +14,16 @@ export function middleware(req: NextRequest) {
 
   if (!pathnameHasLocale) {
     const acceptLanguage = req.headers.get('accept-language')
-    const detectedLocale = acceptLanguage
-      ? locales.find((locale) => acceptLanguage.includes(locale))
-      : defaultLocale
+    const detectedLocale =
+      (acceptLanguage && locales.find((locale) => acceptLanguage.includes(locale))) ||
+      defaultLocale
+
 
     return NextResponse.redirect(
       new URL(`/${detectedLocale}${pathname}`, req.url),
     )
   }
+
 
   // "/trade/BTC_USDT" 경로 query param 기본값 "type=spot" 추가
   if (pathname.includes('/trade/BTC_USDT') && !searchParams.has('type')) {
