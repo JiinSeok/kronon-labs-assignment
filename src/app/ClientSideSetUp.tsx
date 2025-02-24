@@ -1,12 +1,9 @@
 'use client'
 
-import { ThemeProvider } from '@/components/utils/theme-switch'
+import defaultQueryClient from '@/api/defaultQueryClient'
+import { QueryClientProvider } from '@tanstack/react-query'
 import { ReactNode } from 'react'
 
 export default function ClientSideSetUp({ children }: { children: ReactNode }) {
-  return (
-    <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-      {children}
-    </ThemeProvider>
-  )
+  return <QueryClientProvider client={defaultQueryClient}>{children}</QueryClientProvider>
 }
