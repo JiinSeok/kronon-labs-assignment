@@ -44,7 +44,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} bg-gray-50 text-black dark:bg-gray-900 dark:text-white transition-colors duration-300 antialiased`}
       >
         <ClientSideSetUp>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <ThemeProvider attribute="class" enableSystem disableTransitionOnChange>
             <Suspense fallback={<LoadingSpinner full />}>
               <NavigationBar />
               {children}
