@@ -1,4 +1,4 @@
-import en from '@/locales/en.json'
+import en from '@/lib/locales/en.json'
 import { Metadata } from 'next'
 
 // import ko from "@/locales/ko.json";

@@ -1,7 +1,7 @@
 'use client'
 
 import { LocaleSwitcher } from '@/components/utils/locale-switch'
-import { metaData, navItems } from '@/lib/data'
+import { metaData, navItems } from '@/lib/data/data'
 import Link from 'next/link'
 
 import { ThemeSwitcher } from './utils/theme-switch'
