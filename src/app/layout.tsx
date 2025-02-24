@@ -1,5 +1,5 @@
+import { metaData } from '@/lib/data'
 import '@/styles/globals.css'
-import { metaData } from '@/lib/metadata'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 

@@ -1,5 +1,5 @@
-import ClientSideSetUp from '@/components/ClientSideSetUp'
-import { NavigationBar } from '@/components/NavigationBar'
+import ClientSideSetUp from '@/app/ClientSideSetUp'
+import NavigationBar from '@/components/NavigationBar'
 import { SupportedLocale } from '@/lib/types/types'
 import '@/styles/globals.css'
 import { ReactNode } from 'react'
