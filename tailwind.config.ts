@@ -12,6 +12,18 @@ export default {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
       },
+      keyframes: {
+        spinner: {
+          '0%': { transform: 'translate(-50%, -50%) rotate(0deg) scale(1.1)' },
+          '50%': { transform: 'translate(-50%, -50%) rotate(360deg) scale(1)' },
+          '100%': {
+            transform: 'translate(-50%, -50%) rotate(360deg) scale(1)',
+          },
+        },
+      },
+      animation: {
+        spinner: 'spinner 2.4s infinite',
+      },
     },
   },
   plugins: [],
