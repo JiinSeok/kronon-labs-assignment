@@ -18,3 +18,8 @@ export type PageProps = {
   params: Params
   searchParams?: URLSearchParams
 }
+
+export interface CustomMessage {
+  title?: string
+  message?: string
+}
