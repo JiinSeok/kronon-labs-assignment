@@ -1,15 +1,12 @@
-export default function Container() {
-  return <article></article>
-}
+import { LayoutProps } from '@/lib/types/types'
+import classNames from 'classnames'
 
-function Header({ title }: { title: string }) {
+export default function Container({ children, className }: LayoutProps) {
+  const combinedClass = classNames(className, 'bg-white dark:bg-gray-800 rounded p-4')
   return (
-    <>
-      <header>
-        <h1>{title}</h1>
-      </header>
-      <div></div>
-    </>
+    <section className={combinedClass}>
+      <div className="text-sm">{children}</div>
+    </section>
   )
 }
 
@@ -18,12 +15,15 @@ function Tabs({ tabs }: { tabs: any[] }) {
     <nav>
       <ul>
         {tabs.map((tab) => (
-          <li key={tab.id}>{tab.title}</li>
+          <li key={tab.id}>
+            <a href={tab.href}>
+              <h2 className="font-semibold mb-2">{tab.title}</h2>
+            </a>
+          </li>
         ))}
       </ul>
     </nav>
   )
 }
 
-Container.Header = Header
 Container.Tabs = Tabs

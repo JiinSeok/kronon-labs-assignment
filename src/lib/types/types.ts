@@ -10,7 +10,8 @@ export type SupportedLocale = 'en' | 'ko'
 
 export type LayoutProps = {
   children: ReactNode
-  params: Params
+  params?: Params
+  className?: string
 }
 
 export type PageProps = {
