@@ -1,7 +1,5 @@
 import handleError from '@/lib/utils/errorHandler'
-import { createSyncStoragePersister } from '@tanstack/query-sync-storage-persister'
 import { MutationCache, QueryCache, QueryClient } from '@tanstack/react-query'
-import { persistQueryClient } from '@tanstack/react-query-persist-client'
 import { toast } from 'react-toastify'
 
 const defaultQueryClient = new QueryClient({
@@ -26,14 +24,14 @@ const defaultQueryClient = new QueryClient({
 })
 
 if (typeof window !== 'undefined') {
-  persistQueryClient({
-    queryClient: defaultQueryClient,
-    persister: createSyncStoragePersister({
-      storage: window.localStorage,
-      key: 'binance-query-cache',
-    }),
-    maxAge: 1000 * 60 * 60 * 24, // 24시간
-  })
+  // persistQueryClient({
+  //   queryClient: defaultQueryClient,
+  //   persister: createSyncStoragePersister({
+  //     storage: window.localStorage,
+  //     key: 'binance-query-cache',
+  //   }),
+  //   maxAge: 1000 * 60 * 60 * 24, // 24시간
+  // })
 
   // 탭 간 캐시 동기화 설정
   const broadcastChannel = new BroadcastChannel('query-cache-sync')

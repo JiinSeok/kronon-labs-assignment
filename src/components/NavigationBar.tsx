@@ -1,10 +1,10 @@
 'use client'
 
-import { LocaleSwitcher } from '@/components/utils/locale-switch'
-import { metaData, navItems } from '@/lib/data/data'
+import { LocaleSwitcher } from '@/components/utils/LocaleSwitcher'
+import { MENU, METADATA } from '@/lib/data/appData'
 import Link from 'next/link'
 
-import { ThemeSwitcher } from './utils/theme-switch'
+import { ThemeSwitcher } from './utils/ThemeSwitcher'
 
 export default function NavigationBar() {
   return (
@@ -14,11 +14,11 @@ export default function NavigationBar() {
           {/* 좌측: 로고 및 데스크탑 네비게이션 메뉴 */}
           <div className="flex items-center gap-4 mb-4 md:mb-0">
             <Link href="/" className="text-3xl font-semibold tracking-tight">
-              {metaData.title}
+              {METADATA.title}
             </Link>
             {/* 데스크탑에서는 네비 메뉴 보이기 */}
             <div className="hidden md:flex gap-4">
-              {Object.entries(navItems).map(([path, { name }]) => (
+              {Object.entries(MENU).map(([path, { name }]) => (
                 <Link
                   key={path}
                   href={path}

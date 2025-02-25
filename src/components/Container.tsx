@@ -1,6 +1,5 @@
-import { ComponentProps } from '@/lib/types/types'
+import { ComponentProps } from '@/lib/types'
 import classNames from 'classnames'
-import React from 'react'
 
 export default function Container({ children, className }: ComponentProps) {
   const combinedClass = classNames(className, 'relative bg-white dark:bg-gray-800 rounded p-4')

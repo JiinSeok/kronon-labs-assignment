@@ -1,7 +1,7 @@
 'use client'
 
 import Container from '@/components/Container'
-import { TodayDate, TradingPriceData, TradingVolumeData } from '@/lib/data/mock'
+import { TodayDate, TradingPriceData, TradingVolumeData } from '@/lib/data/mockData'
 import { ApexOptions } from 'apexcharts'
 import dynamic from 'next/dynamic'
 import React from 'react'

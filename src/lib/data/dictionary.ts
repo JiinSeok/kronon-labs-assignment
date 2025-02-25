@@ -1,7 +1,13 @@
-import en from '@/lib/locales/en.json'
+import en from '@/lib/data/en.json'
 import { Metadata } from 'next'
 
-// import ko from "@/locales/ko.json";
+// import ko from "@/stores/ko.json";
+
+// import ko from "@/stores/ko.json";
+
+// import ko from "@/stores/ko.json";
+
+// import ko from "@/stores/ko.json";
 
 const dictionaries: Record<string, Record<string, any>> = {
   en,

@@ -1,7 +1,8 @@
-import ClientSideSetUp from '@/app/ClientSideSetUp'
 import NavigationBar from '@/components/NavigationBar'
-import { ThemeProvider } from '@/components/utils/theme-switch'
-import { metaData } from '@/lib/data/data'
+import ClientSideSetUp from '@/components/utils/ClientSideSetUp'
+import { ThemeProvider } from '@/components/utils/ThemeSwitcher'
+import { METADATA } from '@/lib/data/appData'
+import { LayoutProps } from '@/lib/types'
 import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
@@ -17,21 +18,17 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(metaData.baseUrl),
+  metadataBase: new URL(METADATA.baseUrl),
   title: {
-    default: metaData.title,
-    template: `%s | ${metaData.title}`,
+    default: METADATA.title,
+    template: `%s | ${METADATA.title}`,
   },
   icons: {
     icon: '/favicon.ico',
   },
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en">
       <head>

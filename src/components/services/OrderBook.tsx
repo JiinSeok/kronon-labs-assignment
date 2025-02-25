@@ -45,7 +45,7 @@ export default function OrderBook() {
   //   const interval = setInterval(fetchOrderBook, 5000)
   //
   //   return () => clearInterval(interval)
-  // }, [symbol])
+  // }, [symbolPair])
 
   return (
     <Container className="col-span-3 row-start-2 row-span-12">

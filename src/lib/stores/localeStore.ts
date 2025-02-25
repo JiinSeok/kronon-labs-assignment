@@ -1,4 +1,4 @@
-import { SupportedLocale } from '@/lib/types/types'
+import { SupportedLocale } from '@/lib/types'
 import { create } from 'zustand'
 
 interface LocaleState {

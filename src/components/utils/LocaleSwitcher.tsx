@@ -1,5 +1,5 @@
-import { useLocaleStore } from '@/lib/locales/localeStore'
-import { SupportedLocale } from '@/lib/types/types'
+import { useLocaleStore } from '@/lib/stores/localeStore'
+import { SupportedLocale } from '@/lib/types'
 
 export function LocaleSwitcher() {
   const selectedLocale = useLocaleStore((state) => state.locale)

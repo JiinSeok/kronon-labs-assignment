@@ -42,9 +42,9 @@ export function FavoriteStar() {
     <>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
+        viewBox="0 0 20 20"
         fill="none"
-        className="w-6 h-6 text-gray-400 dark:text-gray-500"
+        className="w-5 h-5 text-gray-400 dark:text-gray-500"
       >
         <path
           fillRule="evenodd"

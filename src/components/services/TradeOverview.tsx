@@ -1,7 +1,7 @@
 import Container from '@/components/Container'
 
-export default function TradeOverview({ symbol }: { symbol: string }) {
-  const symbolPair = symbol.replace(/-/g, '/').toUpperCase()
+export default function TradeOverview() {
+  const symbolPair = 'BTC/USDT'
 
   return (
     <Container className={'relative col-span-9 row-span-1 row-start-1'}>

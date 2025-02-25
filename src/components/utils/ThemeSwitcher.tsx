@@ -18,8 +18,7 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   )
 }
 
-export const ThemeSwitcher: React.FC = () => {
-  // resolvedTheme를 사용하면 클라이언트에서 테마가 확정된 후 값을 가져올 수 있습니다.
+export function ThemeSwitcher() {
   const { resolvedTheme, setTheme } = useTheme()
   const toggleTheme = () => {
     const newTheme = resolvedTheme === 'light' ? 'dark' : 'light'
