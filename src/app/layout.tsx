@@ -1,12 +1,10 @@
 import ClientSideSetUp from '@/app/ClientSideSetUp'
-import LoadingSpinner from '@/components/LoadingSpinner'
 import NavigationBar from '@/components/NavigationBar'
 import { ThemeProvider } from '@/components/utils/theme-switch'
 import { metaData } from '@/lib/data/data'
 import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
-import { Suspense } from 'react'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -41,14 +39,16 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-gray-50 text-black dark:bg-gray-900 dark:text-white transition-colors duration-300 antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-gray-50 text-black dark:bg-gray-900 dark:text-white transition-colors duration-300 antialiased min-h-screen`}
       >
         <ClientSideSetUp>
           <ThemeProvider attribute="class" enableSystem disableTransitionOnChange>
-            <Suspense fallback={<LoadingSpinner full />}>
-              <NavigationBar />
+            {/*<Suspense fallback={<LoadingSpinner full />}>*/}
+            <NavigationBar />
+            <div className={'container mx-auto px-4 justify-center flex flex-col md:flex-row md:items-center'}>
               {children}
-            </Suspense>
+            </div>
+            {/*</Suspense>*/}
           </ThemeProvider>
         </ClientSideSetUp>
       </body>

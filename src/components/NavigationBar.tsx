@@ -9,7 +9,7 @@ import { ThemeSwitcher } from './utils/theme-switch'
 export default function NavigationBar() {
   return (
     <>
-      <nav className="bg-gray-100 dark:bg-gray-800 px-4 py-2">
+      <nav className="w-full bg-gray-100 dark:bg-gray-800 px-4 py-2">
         <div className="container mx-auto flex flex-col md:flex-row md:items-center justify-between">
           {/* 좌측: 로고 및 데스크탑 네비게이션 메뉴 */}
           <div className="flex items-center gap-4 mb-4 md:mb-0">
