@@ -1,8 +1,9 @@
 import { LayoutProps } from '@/lib/types/types'
 import classNames from 'classnames'
+import React, { ReactNode } from 'react'
 
 export default function Container({ children, className }: LayoutProps) {
-  const combinedClass = classNames(className, 'bg-white dark:bg-gray-800 rounded p-4')
+  const combinedClass = classNames(className, 'relative bg-white dark:bg-gray-800 rounded p-4')
   return (
     <section className={combinedClass}>
       <div className="text-sm">{children}</div>
@@ -10,20 +11,41 @@ export default function Container({ children, className }: LayoutProps) {
   )
 }
 
-function Tabs({ tabs }: { tabs: any[] }) {
+function Tabs({ tabs, initialTab, children }: { tabs?: string[]; initialTab: string; children?: ReactNode }) {
+  // const [selectedTab, setSelectedTab] = useState(initialTab)
+
   return (
-    <nav>
-      <ul>
-        {tabs.map((tab) => (
-          <li key={tab.id}>
-            <a href={tab.href}>
-              <h2 className="font-semibold mb-2">{tab.title}</h2>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <div className="flex-col mb-1 w-full">
+      <nav className={'flex items-center gap-1'}>
+        <ul>
+          <h2 className="font-semibold text-gray-900">{initialTab}</h2>
+          {tabs?.map((tab) => (
+            <li key={tab}>
+              <h2 className="text-gray-400 ">
+                {tab}
+                {/*<a href={tab.href}>*/}
+              </h2>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      {/*<Line />*/}
+    </div>
+  )
+}
+
+function Line() {
+  return <div className={'h-[1px] w-full bg-gray-200 mb-2'} />
+}
+
+function ContentSkeleton() {
+  return (
+    <div className="animate-pulse w-full h-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center rounded p-2">
+      <span className="opacity-50 text-sm w-full h-full flex justify-center items-center">Now preparing</span>
+    </div>
   )
 }
 
 Container.Tabs = Tabs
+Container.Line = Line
+Container.Skeleton = ContentSkeleton
