@@ -4,11 +4,11 @@
 // 주문 목록, 매수/매도 표시 복잡
 import Container from '@/components/Container'
 
-interface DepthResponse {
-  lastUpdateId: number
-  bids: string[][]
-  asks: string[][]
-}
+// interface DepthResponse {
+//   lastUpdateId: number
+//   bids: string[][]
+//   asks: string[][]
+// }
 
 const ORDER_BOOK = {
   lastUpdateId: 123456,

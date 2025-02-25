@@ -1,8 +1,8 @@
-import { LayoutProps } from '@/lib/types/types'
+import { ComponentProps } from '@/lib/types/types'
 import classNames from 'classnames'
-import React, { ReactNode } from 'react'
+import React from 'react'
 
-export default function Container({ children, className }: LayoutProps) {
+export default function Container({ children, className }: ComponentProps) {
   const combinedClass = classNames(className, 'relative bg-white dark:bg-gray-800 rounded p-4')
   return (
     <section className={combinedClass}>
@@ -11,7 +11,7 @@ export default function Container({ children, className }: LayoutProps) {
   )
 }
 
-function Tabs({ tabs, initialTab, children }: { tabs?: string[]; initialTab: string; children?: ReactNode }) {
+function Tabs({ tabs, initialTab }: { tabs?: string[]; initialTab: string }) {
   // const [selectedTab, setSelectedTab] = useState(initialTab)
 
   return (

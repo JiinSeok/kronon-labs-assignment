@@ -4,16 +4,6 @@ import { ReactNode } from 'react'
 export const SupportedLocales = ['en', 'ko'] as const
 export type SupportedLocale = 'en' | 'ko'
 
-// export type Params = {
-//   locale: SupportedLocale
-// }
-
-export type LayoutProps = {
-  children: ReactNode
-  params?: Params
-  className?: string
-}
-
 export type PageProps = {
   params: Params
   searchParams?: URLSearchParams
@@ -22,4 +12,26 @@ export type PageProps = {
 export interface CustomMessage {
   title?: string
   message?: string
+}
+
+export interface CustomMessage {
+  title?: string
+  message?: string
+}
+
+export interface ClickProps {
+  onClick?: () => void
+}
+
+export type LayoutProps = Readonly<{
+  children: ReactNode
+}>
+
+export interface ChildrenProps {
+  children: ReactNode
+}
+
+export interface ComponentProps {
+  children?: ReactNode
+  className?: string
 }
