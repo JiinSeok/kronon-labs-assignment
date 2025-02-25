@@ -1,9 +1,7 @@
 'use client'
 
 import useHydration from '@/hooks/useHydration'
-import { ThemeProviderProps, useTheme } from 'next-themes'
-import { ThemeProvider as NextThemesProvider } from 'next-themes'
-import { useEffect, useState } from 'react'
+import { ThemeProvider as NextThemesProvider, ThemeProviderProps, useTheme } from 'next-themes'
 import { FaCircleHalfStroke } from 'react-icons/fa6'
 
 const storageKey = 'theme-preference'
