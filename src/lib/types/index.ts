@@ -4,9 +4,9 @@ import { ReactNode } from 'react'
 
 
 
-export type SupportedLocale = 'en' | 'ko'
+export type SupportedLocale = 'en'
 export const defaultLocale: SupportedLocale = 'en'
-export const SUPPORTED_LOCALES: SupportedLocale[] = ['en', 'ko'] as const
+export const SUPPORTED_LOCALES: SupportedLocale[] = ['en'] as const
 
 export interface CustomMessage {
   title?: string
