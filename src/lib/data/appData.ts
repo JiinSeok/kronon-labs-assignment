@@ -6,7 +6,7 @@ export const METADATA = {
     canonical: '/',
     languages: {
       en: '/en',
-      ko: '/ko',
+      ko: '/en',
     },
   },
 }

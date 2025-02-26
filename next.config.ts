@@ -6,7 +6,7 @@ import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   i18n: {
-    locales: ['en', 'ko'],
+    locales: ['en'],
     defaultLocale: 'en',
     // localeDetection: false,
   },
