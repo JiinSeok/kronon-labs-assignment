@@ -8,15 +8,6 @@ import TradeConsole from '@/components/services/TradeConsole'
 import TradeOverview from '@/components/services/TradeOverview'
 import { useSymbolStore } from '@/lib/stores/symbolStore'
 
-// 1) 빌드시 미리 만들 symbolPair들
-
-// 1) 빌드시 미리 만들 symbolPair들
-
-// 1) 빌드시 미리 만들 symbolPair들
-
-// 1) 빌드시 미리 만들 symbolPair들
-
-// 1) 빌드시 미리 만들 symbolPair들
 export async function generateStaticParams(): Promise<{ symbolPair: string }[]> {
   return [{ symbolPair: 'BTC_USDT' }, { symbolPair: 'ETH_USDT' }]
 }
@@ -24,21 +15,24 @@ export async function generateStaticParams(): Promise<{ symbolPair: string }[]> 
 // 2) 페이지 props 타입
 export interface TradePageProps {
   params: {
-    symbolPair: string // [symbolPair] 동적 라우트에서 가져오는 값
+    symbolPair: string // [[symbolPair]] 동적 라우트에서 가져오는 값
   }
   searchParams: {
     [key: string]: string | string[] | undefined
   }
 }
 
+// { params, searchParams }
+// : TradePageProps
 // 3) 실제 페이지 컴포넌트
-export default function TradePage({ params, searchParams }: TradePageProps) {
-  const { symbolPair } = params
+export default function TradePage() {
+  const searchParams = {
+    type: 'spot',
+  }
+  // const {symbolPair} = params
+  const symbolPair = 'BTC_USDT'
   const type = searchParams.type ?? 'spot'
 
-  if (!symbolPair) {
-    return null
-  }
   const [base, quote] = symbolPair.split('_')
   const { setBaseSymbol, setQuoteSymbol } = useSymbolStore()
 

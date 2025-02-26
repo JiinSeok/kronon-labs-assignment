@@ -24,7 +24,7 @@ export interface ComponentProps {
 
 export interface TradePageProps {
   params: {
-    symbolPair: string // [symbolPair] 동적 라우트에서 가져오는 값
+    symbolPair: string // [[symbolPair]] 동적 라우트에서 가져오는 값
   }
   searchParams: {
     [key: string]: string | string[] | undefined

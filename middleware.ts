@@ -1,32 +1,31 @@
+import { SUPPORTED_LOCALES, defaultLocale } from '@/lib/types'
 import { NextRequest, NextResponse } from 'next/server'
-
-const locales = ['en', 'ko']
-const defaultLocale = 'en'
 
 export function middleware(req: NextRequest) {
   const url = req.nextUrl
-  const { pathname, searchParams } = url
+  const { pathname, searchParams, locale } = url
 
-  // URL에 locale 없으면 리다이렉트
-  const pathnameHasLocale = locales.some((locale) =>
-    pathname.startsWith(`/${locale}`),
+  const pathnameHasLocale = SUPPORTED_LOCALES.some((loc) =>
+    pathname.startsWith(`/${loc}`),
   )
 
   if (!pathnameHasLocale) {
     const acceptLanguage = req.headers.get('accept-language')
     const detectedLocale =
-      (acceptLanguage && locales.find((locale) => acceptLanguage.includes(locale))) ||
+      (acceptLanguage &&
+        SUPPORTED_LOCALES.find((loc) => acceptLanguage.includes(loc))) ||
       defaultLocale
 
-
     return NextResponse.redirect(
-      new URL(`/${detectedLocale}${pathname}`, req.url),
+      new URL(`/${detectedLocale}/trade/BTC_USDT`, req.url),
     )
   }
 
-
-  // "/trade/BTC_USDT" 경로 query param 기본값 "type=spot" 추가
-  if (pathname.includes('/trade/BTC_USDT') && !searchParams.has('type')) {
+  if (
+    pathname.startsWith(`/${locale}/trade/`) &&
+    !searchParams.has('type') &&
+    req.headers.get('referer') !== url.toString()
+  ) {
     url.searchParams.set('type', 'spot')
     return NextResponse.redirect(url)
   }
@@ -34,7 +33,7 @@ export function middleware(req: NextRequest) {
   return NextResponse.next()
 }
 
-// 적용할 경로
+// ✅ 적용할 경로 설정
 export const config = {
-  matcher: ['/((?!api|_next|.*\\..*).*)'], // API, _next, 정적 파일 제외
+  matcher: ['/((?!network|_next|.*\\..*).*)'], // API, _next, 정적 파일 제외
 }
