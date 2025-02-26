@@ -1,4 +1,4 @@
-import { SUPPORTED_LOCALES, defaultLocale } from '@/lib/types'
+import { SUPPORTED_LOCALES } from '@/lib/types'
 import { NextRequest, NextResponse } from 'next/server'
 
 export function middleware(req: NextRequest) {
@@ -9,17 +9,17 @@ export function middleware(req: NextRequest) {
     pathname.startsWith(`/${loc}`),
   )
 
-  if (!pathnameHasLocale) {
-    const acceptLanguage = req.headers.get('accept-language')
-    const detectedLocale =
-      (acceptLanguage &&
-        SUPPORTED_LOCALES.find((loc) => acceptLanguage.includes(loc))) ||
-      defaultLocale
-
-    return NextResponse.redirect(
-      new URL(`/${detectedLocale}/trade/BTC_USDT`, req.url),
-    )
-  }
+  // if (!pathnameHasLocale) {
+  //   const acceptLanguage = req.headers.get('accept-language')
+  //   const detectedLocale =
+  //     (acceptLanguage &&
+  //       SUPPORTED_LOCALES.find((loc) => acceptLanguage.includes(loc))) ||
+  //     defaultLocale
+  //
+  //   return NextResponse.redirect(
+  //     new URL(`/${detectedLocale}/trade/BTC_USDT`, req.url),
+  //   )
+  // }
 
   if (
     pathname.startsWith(`/${locale}/trade/`) &&

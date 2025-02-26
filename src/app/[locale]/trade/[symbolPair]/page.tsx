@@ -9,7 +9,7 @@ import TradeOverview from '@/components/services/TradeOverview'
 import { useSymbolStore } from '@/lib/stores/symbolStore'
 
 export async function generateStaticParams(): Promise<{ symbolPair: string }[]> {
-  return [{ symbolPair: 'BTC_USDT' }, { symbolPair: 'ETH_USDT' }]
+  return [{ symbolPair: 'BTCUSDT' }, { symbolPair: 'ETHUSDT' }]
 }
 
 // 2) 페이지 props 타입
@@ -30,7 +30,7 @@ export default function TradePage() {
     type: 'spot',
   }
   // const {symbolPair} = params
-  const symbolPair = 'BTC_USDT'
+  const symbolPair = 'BTCUSDT'
   const type = searchParams.type ?? 'spot'
 
   const [base, quote] = symbolPair.split('_')

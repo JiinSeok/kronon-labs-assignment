@@ -1,4 +1,4 @@
-import TradePage from '@/app/en/trade/BTC_USDT/page'
+import TradePage from '@/app/en/trade/BTCUSDT/page'
 
 export default function HomePage() {
   // const { [symbolPair] } = params

@@ -3,7 +3,7 @@
 export default function NotFound() {
   return (
     <button>
-      <a href={'/en/trade/BTC_USDT'}></a>
+      <a href={'/en/trade/BTCUSDT'}></a>
     </button>
   )
 }

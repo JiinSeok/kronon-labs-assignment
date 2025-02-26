@@ -21,7 +21,7 @@ const nextConfig: NextConfig = {
             value: '^(?!.*\\/en\\/trade).*$',
           },
         ],
-        destination: '/en/trade/BTC_USDT',
+        destination: '/en/trade/BTCUSDT',
         permanent: false,
       },
     ]
